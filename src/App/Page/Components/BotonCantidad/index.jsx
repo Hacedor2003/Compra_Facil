@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ContenedorSubPrecio } from '../../Product/Routes/ProductPage/Estilos';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeQuantityProduct, selectCart } from '../../../../Data/Store/Features/Carts/CartsSlice';
@@ -21,4 +22,8 @@ export const BtnComparar = ({ id = 1 }) => {
 			<button onClick={() => dispatch(changeQuantityProduct(sumar))}>{'>'}</button>
 		</ContenedorSubPrecio>
 	);
+};
+
+BtnComparar.propTypes = {
+	id: PropTypes.number.isRequired,
 };

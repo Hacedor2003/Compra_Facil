@@ -54,9 +54,11 @@ const profilelice = createSlice({
 });
 
 export const { change, profileAdded, reactionAdded } = profilelice.actions;
-export default profilelice.reducer;
 export const selectAllprofile = (state) => state.profile.profile;
 export const selectProfileById = (state, profileId) => state.profile.profile.find((profile) => profile.id === profileId);
 export const selectProfileByUserName = (state, username) => state.profile.profile.find((profile) => profile.username === username);
 export const selectProfileByPassWord = (state, password) => state.profile.profile.find((profile) => profile.password === password);
 export const profileStatusSelector = (state) => state.profile.status;
+
+
+export const profileSlice = profilelice.reducer;

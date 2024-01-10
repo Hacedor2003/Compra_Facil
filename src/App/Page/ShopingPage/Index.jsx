@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { BtnComprar, ContenedorHeader, ContenedorReceta, ListaPlecas, Receipt } from './Estilos';
 import { selectCartsError, selectCartsStatus } from '../../../Data/Store/Features/Carts/CartsSlice';
 import { LoaderPage } from '../LoaderPage/LoaderPage';
+import PropTypes from 'prop-types';
 
 export const ShopingPage = ({ cart, setWatch }) => {
 	const cartStatus = useSelector(selectCartsStatus);
@@ -61,4 +62,9 @@ export const ShopingPage = ({ cart, setWatch }) => {
 	}
 
 	return <>{content}</>;
+};
+
+ShopingPage.propTypes = {
+	cart: PropTypes.array.isRequired,
+	setWatch: PropTypes.func.isRequired,
 };

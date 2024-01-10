@@ -1,7 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-import {  selectCartsError, selectCartsStatus } from '../../../Data/Store/Features/Carts/CartsSlice';
+import { useSelector } from 'react-redux';
+import { selectCartsError } from '../../../Data/Store/Features/Carts/CartsSlice';
 import { Contenedor, ContenedorBtnComprar } from './estilos';
-import Producto from '../Product/Routes/ListaProductos/Components/Producto/Index';
 import { useContext, useEffect, useState } from 'react';
 import { LoaderPage } from '../LoaderPage/LoaderPage';
 import { BotonComprar } from '../Components/BotonComprar/Index';
@@ -17,7 +16,6 @@ export const Cart = () => {
 	const [watch, setWatch] = useState(true);
 	const error = useSelector(selectCartsError);
 	const [cart, setCart] = useState([]);
-	const dispatch = useDispatch();
 
 	let content = 'Esto es un texto predeterminado';
 
@@ -29,7 +27,7 @@ export const Cart = () => {
 		} else if (profile.isLocal && cartUser.data?.length > 0) {
 			setDataCarts(cartUser.data);
 		}
-	}, [profile]);
+	}, [profile, cartUser]);
 
 	useEffect(() => {
 		if (dataCarts && dataCarts.length > 0) {
@@ -51,14 +49,17 @@ export const Cart = () => {
 		case 'succeeded':
 			{
 				if (Array.isArray(cart)) {
-					content =
-						cart.length > 0
-							? cart.map((prod, index) =>
-									prod.products.map((item) => (
-										<li key={index}><Product productId={item.productId} quantity={item.quantity} Mostrar={false} />{' '}</li>
-									))
-							  )
-							: '';
+					content = cart.map((prod, index) =>
+						prod.products.map((item) => (
+							<li key={index}>
+								<Product
+									productId={item.productId}
+									quantity={item.quantity}
+									Mostrar={false}
+								/>{' '}
+							</li>
+						))
+					);
 				}
 			}
 			break;

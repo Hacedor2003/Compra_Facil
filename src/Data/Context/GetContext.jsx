@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectProfileById, fetchProfile, profileStatusSelector } from '../../Data/Store/Features/Profile/ProfileSlice';
+import { selectProfileById, profileStatusSelector } from '../../Data/Store/Features/Profile/ProfileSlice';
 import { selectCartsStatus, fetchCarts, selectCartsByUserID } from '../Store/Features/Carts/CartsSlice';
 
 export const useProfileData = () => {
@@ -25,7 +25,6 @@ export const useProfileData = () => {
 
 		if (localData.username) {
 			setLocalProfileData(localData);
-			profileStatus = 'succeeded';
 		}
 	}, [profileStatus, dispatch]);
 

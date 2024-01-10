@@ -1,5 +1,6 @@
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
 import { useProfileData } from './GetContext';
+import PropTypes from 'prop-types';
 
 // Creamos el contexto
 export const DataContext = createContext(null);
@@ -12,3 +13,7 @@ export const DataProvider = ({ children }) => {
 };
 
 export default DataContext;
+
+DataProvider.propTypes = {
+	children: PropTypes.element.isRequired,
+};

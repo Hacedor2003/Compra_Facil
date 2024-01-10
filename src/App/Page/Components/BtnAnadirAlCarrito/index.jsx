@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import './Estilos.css';
 import { FaCartPlus } from 'react-icons/fa6';
+import PropTypes from 'prop-types';
 
 const Btn = styled.button`
 	height: fit-content;
@@ -55,4 +56,10 @@ export const BtnAnadirAlCarrito = ({ rating, producto, watch }) => {
 			<FaCartPlus />
 		</Btn>
 	);
+};
+
+BtnAnadirAlCarrito.propTypes = {
+	rating: PropTypes.number.isRequired,
+	producto: PropTypes.object.isRequired,
+	watch: PropTypes.bool.isRequired,
 };

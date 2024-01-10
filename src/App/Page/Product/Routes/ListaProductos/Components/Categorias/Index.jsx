@@ -1,7 +1,8 @@
 import Producto from '../Producto/Index';
 import { Lista } from './Estilos';
+import PropTypes from 'prop-types';
 
-export const Categoria = ({ category, producto }) => {
+export const Categoria = ({ producto }) => {
 	return (
 		<>
 			{
@@ -14,4 +15,8 @@ export const Categoria = ({ category, producto }) => {
 			}
 		</>
 	);
+};
+
+Categoria.propTypes = {
+	producto: PropTypes.object.isRequired,
 };

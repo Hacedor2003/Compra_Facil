@@ -1,9 +1,8 @@
 import { useContext, useState } from 'react';
 import { BtnLogin, BtnSwitch, Contenedor, ContenedorDerecho, ContenedorIsquierdo, ContenedorLetras, ContenedorLogin, ContenedorSignUp, Letras, LetrasHint } from './estilos';
 import { DataContext } from '../../../Data/Context/Context';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { CheckLogin } from './Components/CheckLogin';
 import { selectAllprofile } from '../../../Data/Store/Features/Profile/ProfileSlice';
 
 export const LoginForm = () => {
@@ -32,8 +31,6 @@ export const LoginForm = () => {
 		const userData = { username, password, name, lastname, email, id: 1, photo: photoUrl };
 		if (!watch) {
 			Object.keys(userData).forEach((key) => localStorage.setItem(key, userData[key]));
-		} else {
-			const { newUser, newPassword } = CheckLogin(username, password);
 		}
 	};
 

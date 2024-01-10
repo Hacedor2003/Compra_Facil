@@ -1,4 +1,5 @@
 import './index.css';
+import PropTypes from 'prop-types';
 export const BotonComprar = ({ setWatch }) => {
 	return (
 		<button
@@ -19,4 +20,8 @@ export const BotonComprar = ({ setWatch }) => {
 			</svg>
 		</button>
 	);
+};
+
+BotonComprar.propTypes = {
+	setWatch: PropTypes.bool.isRequired,
 };

@@ -54,9 +54,9 @@ const productSlice = createSlice({
 });
 
 export const { change, productAdded, reactionAdded } = productSlice.actions;
-export default productSlice.reducer;
 export const selectAllProducts = (state) => state.products.products;
 export const selectProductById = (state, productId) => state.products.products.find((product) => product.id === productId);
 export const selectProductByName = (state, nameProduct) => state.products.products.filter((product) => product.title.includes(nameProduct));
 export const selectProductStatus = (state) => state.products.status;
 
+export const productSlicee = productSlice.reducer

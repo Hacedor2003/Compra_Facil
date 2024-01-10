@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const Valoracion = ({ rating }) => {
 	const [valoracion, setValoracion] = useState(rating);
@@ -25,4 +26,8 @@ export const Valoracion = ({ rating }) => {
 			})}
 		</div>
 	);
+};
+
+Valoracion.propTypes = {
+	rating: PropTypes.number.isRequired,
 };

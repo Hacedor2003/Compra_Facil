@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import profileReducer from './Features/Profile/ProfileSlice';
-import productReducer from './Features/Products/ProductSlice';
-import cartsReducer from './Features/Carts/CartsSlice';
+import { profileSlice } from './Features/Profile/ProfileSlice';
+import { productSlicee } from './Features/Products/ProductSlice';
+import { cartsSlicee } from './Features/Carts/CartsSlice';
 
-export default configureStore({
+const Store = configureStore({
 	reducer: {
-		profile: profileReducer,
-		products: productReducer,
-		carts: cartsReducer,
+		profile: profileSlice,
+		products: productSlicee,
+		carts: cartsSlicee,
 	},
 });
+
+export default Store;

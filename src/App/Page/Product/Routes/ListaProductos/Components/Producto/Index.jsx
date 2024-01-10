@@ -3,6 +3,7 @@ import { Valoracion } from './Components/Valoracion';
 
 import { Link } from 'react-router-dom';
 import { BtnAnadirAlCarrito } from '../../../../../Components/BtnAnadirAlCarrito';
+import PropTypes from 'prop-types';
 
 export default function Producto({ producto, Mostrar }) {
 	return (
@@ -28,3 +29,8 @@ export default function Producto({ producto, Mostrar }) {
 		</Contenedor>
 	);
 }
+
+Producto.propTypes = {
+	producto: PropTypes.object.isRequired,
+	Mostrar: PropTypes.bool.isRequired,
+};

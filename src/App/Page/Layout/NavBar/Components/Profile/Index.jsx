@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
-import { DataContext } from '../../../../../../Data/Context/Context';
+import { useEffect, useState } from 'react';
 import { Anchor, AnchorLink } from './Style';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectAllprofile } from '../../../../../../Data/Store/Features/Profile/ProfileSlice';
 
 export const ProfilePhoto = () => {

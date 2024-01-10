@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { color } from '../../../../../Layout/NavBar/Estilos';
 
 const Deslizar = keyframes`
   0% {

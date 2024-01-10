@@ -53,10 +53,11 @@ const cartsSlice = createSlice({
 });
 
 export const { changeQuantityProduct } = cartsSlice.actions;
-export default cartsSlice.reducer;
 export const selectCart = (state) => state.carts.carts;
 export const selectCartsLenght = (state) => state.carts.carts.length;
 export const selectCartById = (state, cartsId) => state.carts.carts.find((cart) => cart.id === cartsId);
 export const selectCartsByUserID = (state, userID) => state.carts.carts.filter((cart) => cart.userId === userID);
 export const selectCartsStatus = (state) => state.carts.status;
 export const selectCartsError = (state) => state.carts.error;
+
+export const cartsSlicee = cartsSlice.reducer;

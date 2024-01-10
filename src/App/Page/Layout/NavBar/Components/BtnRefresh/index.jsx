@@ -1,7 +1,5 @@
-import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { fetchCarts } from '../../../../../../Data/Store/Features/Carts/CartsSlice';
 import { fetchProfile } from '../../../../../../Data/Store/Features/Profile/ProfileSlice';
 
 export const BtnRefresh = () => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Row, Col, Container } from 'react-bootstrap';
@@ -15,7 +15,7 @@ export const ProductPage = () => {
 	const { id } = useParams();
 	const status = useSelector(selectProductStatus);
 	const product = useSelector((state) => selectProductById(state, Number(id)));
-	const [cantidadAnadir, setCantidadAnadir] = useState(0);
+	const cantidadAnadir = 0
 	if (status === 'idle') {
 		dispatch(fetchProductos());
 	}

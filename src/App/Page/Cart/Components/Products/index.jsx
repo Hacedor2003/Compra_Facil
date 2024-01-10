@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Contenededor } from './styles';
 import { Link } from 'react-router-dom';
 import { useSearchProductsByID } from '../../../Components/SearchProductByID/SearchProductsByID';
@@ -16,4 +17,10 @@ export const Product = ({ productId, quantity, Mostrar }) => {
 			{Mostrar ? <BtnComparar id={productId} /> : ''}
 		</Contenededor>
 	);
+};
+
+Product.propTypes = {
+	productId: PropTypes.number.isRequired,
+	quantity: PropTypes.number.isRequired,
+	Mostrar: PropTypes.bool.isRequired,
 };
