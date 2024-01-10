@@ -5,6 +5,8 @@ import { LoaderPage } from '../LoaderPage/LoaderPage';
 import { useEffect } from 'react';
 import { Lista, ListaDesordenada } from './estilos';
 import Producto from '../Product/Routes/ListaProductos/Components/Producto/Index';
+import { Col, Container, Row } from 'react-bootstrap';
+import { SideBar } from './Components/SideBar';
 
 export const SearchPage = () => {
 	const { nameProduct } = useParams();
@@ -32,20 +34,27 @@ export const SearchPage = () => {
 		case 'succeeded':
 			{
 				content = (
-					<ListaDesordenada>
-						{product.length > 0 ? (
-							product.map((producto) => (
-								<Lista key={producto.id}>
-									<Producto
-										producto={producto}
-										Mostrar={false}
-									/>
-								</Lista>
-							))
-						) : (
-							<h2>No se encontro nada</h2>
-						)}
-					</ListaDesordenada>
+					<Container>
+						<Row>
+							<Col xs={3}><SideBar/></Col>
+							<Col >
+								<ListaDesordenada>
+									{product.length > 0 ? (
+										product.map((producto) => (
+											<Lista key={producto.id}>
+												<Producto
+													producto={producto}
+													Mostrar={false}
+												/>
+											</Lista>
+										))
+									) : (
+										<h2>No se encontro nada</h2>
+									)}
+								</ListaDesordenada>
+							</Col>
+						</Row>
+					</Container>
 				);
 			}
 			break;
