@@ -1,0 +1,34 @@
+#Btn {
+  padding: 10px;
+  text-decoration: none;
+  transition: 0.5s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+  background-color: #ffffff;
+  border: 0px;
+  border-radius: 60%;
+}
+
+#Btn:hover {
+  background-color: rgb(131, 128, 128);
+  border-radius: 20%;
+}
+
+#Btn.active {
+  background-color: black;
+  color: white;
+}
+
+#Btn.active:hover {
+  background-color: rgb(131, 128, 128);
+  color: white;
+  border-radius: 20%;
+}
+
+#BtnProfile {
+  display: contents;
+}
+
+#BtnProfile.active {
+  display: contents;
+}

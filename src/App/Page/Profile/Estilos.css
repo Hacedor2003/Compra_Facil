@@ -1,0 +1,27 @@
+.contenedor {
+  display: flex;
+  height: 80vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#columna {
+  height: 90vh;
+}
+
+#fila {
+  height: inherit;
+  width: inherit;
+}
+
+@media screen and (min-height: 667px) and (max-width: 1200px) {
+  #columna {
+    display: contents;
+    height: 50%;
+  }
+
+  .columnaResponsive {
+    width: 50%;
+  }
+}

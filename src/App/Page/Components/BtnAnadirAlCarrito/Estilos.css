@@ -1,0 +1,22 @@
+#btn {
+  background-color: white;
+  color: black;
+  border: none;
+  margin: 5px;
+  transition: 0.50s ease;
+  -webkit-transition: 0.50s ease;
+  -moz-transition: 0.50s ease;
+  -ms-transition: 0.50s ease;
+  -o-transition: 0.50s ease;
+  border-radius: 20%;
+}
+
+#btn:hover {
+  background-color: black;
+  color: white;
+  border-radius: 20%;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -o-border-radius: 20%;
+}

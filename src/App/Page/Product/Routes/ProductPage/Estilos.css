@@ -1,0 +1,8 @@
+#Columna {
+  height: fit-content;
+}
+
+#Columna>img {
+  width: 100%;
+  height: 50%;
+}
