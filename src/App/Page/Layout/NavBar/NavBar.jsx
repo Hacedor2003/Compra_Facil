@@ -18,7 +18,9 @@ export const NavBar = () => {
 			expand='lg'
 			className='bg-body-tertiary'>
 			<Container fluid>
-				<Header className='header'>Compra Fácil</Header>
+				<LinkContainer to='/'>
+					<Header className='header'>Compra Fácil</Header>
+				</LinkContainer>
 				<Nav
 					className='me-auto my-2 my-lg-0'
 					style={{ maxHeight: '100px' }}

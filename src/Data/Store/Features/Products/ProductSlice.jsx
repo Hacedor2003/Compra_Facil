@@ -18,25 +18,7 @@ const productSlice = createSlice({
 		status: 'idle',
 		error: null,
 	},
-	reducers: {
-		productAdded: (state, action) => {
-			state.products.push(action.payload);
-		},
-		reactionAdded: (state, action) => {
-			const { productId, reaction } = action.payload;
-			const existingProduct = state.products.find((product) => product.id === productId);
-			if (existingProduct) {
-				existingProduct.reactions[reaction]++;
-			}
-		},
-		change: (state, action) => {
-			const { payload } = action;
-			const existingProduct = state.products.find((product) => product.id === payload.id);
-			if (existingProduct) {
-				Object.assign(existingProduct, payload);
-			}
-		},
-	},
+	reducers: {},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchProductos.pending, (state) => {
@@ -53,10 +35,14 @@ const productSlice = createSlice({
 	},
 });
 
-export const { change, productAdded, reactionAdded } = productSlice.actions;
 export const selectAllProducts = (state) => state.products.products;
 export const selectProductById = (state, productId) => state.products.products.find((product) => product.id === productId);
-export const selectProductByName = (state, nameProduct) => state.products.products.filter((product) => product.title.includes(nameProduct));
 export const selectProductStatus = (state) => state.products.status;
+export const selectProductError = (state) => state.products.error;
+export const selectProductByName = (state, nameProduct) => state.products.products.filter((product) => product.title.includes(nameProduct));
+export const selectProductByCategory = (state, category) => state.products.products.filter((product) => product.category.includes(category));
+export const selectProductByPrice = (state, price) => state.products.products.filter((product) => product.price < price);
+export const selectProductByRate = (state, rate) => state.products.products.filter((product) => product.rating.rate < rate);
+export const selectProductByCount = (state, count) => state.products.products.filter((product) => product.rating.count < count);
 
-export const productSlicee = productSlice.reducer
+export const productSlicee = productSlice.reducer;

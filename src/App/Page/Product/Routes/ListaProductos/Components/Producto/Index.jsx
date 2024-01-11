@@ -1,16 +1,16 @@
 import { Contenedor, Etiqueta } from './estilos';
-import { Valoracion } from './Components/Valoracion';
 
 import { Link } from 'react-router-dom';
 import { BtnAnadirAlCarrito } from '../../../../../Components/BtnAnadirAlCarrito';
 import PropTypes from 'prop-types';
+import Valoracion from './Components/Valoracion/Valoracion';
 
 export default function Producto({ producto, Mostrar }) {
 	return (
 		<Contenedor>
 			<Link to={`/product/${producto.id}`}>
 				<img src={producto.image} />
-				<a>{producto.title}</a>
+				<p>{producto.title}</p>
 			</Link>
 			<Etiqueta>{producto.description}</Etiqueta>
 			<p>
@@ -25,7 +25,7 @@ export default function Producto({ producto, Mostrar }) {
 					''
 				)}
 			</p>
-			{Mostrar ? <Valoracion rating={producto.rating.rate} /> : ''}
+			{Mostrar ? <Valoracion rating={producto.rating.rate} setRating={null}  /> : ''}
 		</Contenedor>
 	);
 }

@@ -48,4 +48,5 @@ export const BarraBusqueda = styled.input``;
 
 export const Header = styled.h1`
 	margin: 20px;
-`
+	cursor: pointer;
+`;

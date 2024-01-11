@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Contenedor, ContenedorLista, Lista } from './Estilos';
-import { selectAllProducts, fetchProductos } from '../../../../../Data/Store/Features/Products/ProductSlice';
+import { selectAllProducts, fetchProductos, selectProductStatus, selectProductError } from '../../../../../Data/Store/Features/Products/ProductSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { Categoria } from './Components/Categorias/Index';
 import { LoaderPage } from '../../../LoaderPage/LoaderPage';
 
 export const ListaProductos = () => {
 	const [productosPorCategoria, setProductosPorCategoria] = useState({});
-	const productStatus = useSelector((state) => state.products.status);
+	const productStatus = useSelector(selectProductStatus);
 	const data = useSelector(selectAllProducts);
-	const error = useSelector((state) => state.products.error);
+	const error = useSelector(selectProductError);
 	const dispatch = useDispatch();
 
 	useEffect(() => {

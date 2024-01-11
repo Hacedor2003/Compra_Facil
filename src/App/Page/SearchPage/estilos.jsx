@@ -10,4 +10,6 @@ export const ListaDesordenada = styled.ul`
 	justify-content: center;
 	align-items: center;
 	list-style-type: none;
+	overflow: overlay;
+	height: 77vh;
 `;

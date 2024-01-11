@@ -15,5 +15,5 @@ export const DataProvider = ({ children }) => {
 export default DataContext;
 
 DataProvider.propTypes = {
-	children: PropTypes.element.isRequired,
+	children: PropTypes.array.isRequired,
 };

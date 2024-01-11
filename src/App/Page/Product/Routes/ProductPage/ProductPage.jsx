@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom';
 import { Row, Col, Container } from 'react-bootstrap';
 import { fetchProductos, selectProductById, selectProductStatus } from '../../../../../Data/Store/Features/Products/ProductSlice';
 import { BtnComparar } from '../../../Components/BotonCantidad';
-import { Valoracion } from '../ListaProductos/Components/Producto/Components/Valoracion';
 import { BtnAnadirAlCarrito } from '../../../Components/BtnAnadirAlCarrito';
 import { Anchor, ContenedorTitulo, ContenedorPrecio, ContenedorCaracteristicas, ContenedorAside } from './Estilos';
 import './Estilos.css';
 import { LoaderPage } from '../../../LoaderPage/LoaderPage';
+import Valoracion from '../ListaProductos/Components/Producto/Components/Valoracion/Valoracion';
 
 export const ProductPage = () => {
 	const dispatch = useDispatch();
@@ -54,7 +54,7 @@ export const ProductPage = () => {
 								<ContenedorTitulo>
 									<Anchor>{product.title}</Anchor>
 									<p>Autor: Bryan Espinosa</p>
-									<Valoracion rating={product.rating.rate} />
+									<Valoracion rating={product.rating.rate} setRating={null} />
 								</ContenedorTitulo>
 								<ContenedorPrecio>
 									<p>---- Precio: {product.price}$ ----</p>

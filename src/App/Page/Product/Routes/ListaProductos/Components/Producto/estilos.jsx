@@ -38,6 +38,7 @@ const Appear = keyframes`
 export const Contenedor = styled.div`
 	background-color: white;
 	width: 200px;
+  height: 335px;
 	display: grid;
 	align-content: center;
 	justify-items: center;
@@ -89,7 +90,7 @@ export const Contenedor = styled.div`
 		border-bottom: 1px solid black;
 		&:hover {
 			color: #033203;
-			filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 8.5));
+			filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 8.5));
 		}
 		& > p {
 			overflow: hidden;
@@ -114,7 +115,7 @@ export const Etiqueta = styled.small`
 	top: 20px;
 	background-size: 200px;
 	width: clamp(50px, 100px, 15vw);
-	height: clamp(130px, 150px, 35vw);
+	height: 85%;
 	display: none;
 	border-radius: 0px 30px 30px 0px;
 	border: 3px solid black;
