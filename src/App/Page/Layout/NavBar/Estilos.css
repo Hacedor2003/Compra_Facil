@@ -35,3 +35,8 @@
 #BtnProfile.active {
   display: contents;
 }
+#navbarScroll.navbar-collapse.collapse.show {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

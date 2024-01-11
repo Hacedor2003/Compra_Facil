@@ -10,7 +10,7 @@ export const Contenedor = styled.button`
 	transition: 0.5s ease;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	color: black;
-	background-color: ${color};
+	background: none;
 	border: 0px;
 	border-radius: 60%;
 

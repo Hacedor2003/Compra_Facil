@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { selectProductById } from '../../../../../Data/Store/Features/Products/ProductSlice';
 
 export const Product = ({ productId, quantity, Mostrar }) => {
-	console.log(productId)
 	const data = useSelector((state) => selectProductById(state, productId));
 	return (
 		<Contenededor>

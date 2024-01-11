@@ -1,20 +1,27 @@
+import { useEffect, useState } from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useSelector } from 'react-redux';
+import { selectCartsByUserID } from '../../../../Data/Store/Features/Carts/CartsSlice';
 import { Header } from './Estilos';
 import { ProfilePhoto } from './Components/Profile/Index';
 import SearchBar from './Components/SearchBar/Index';
 import { ShoppingCart } from './Components/ShopingCart';
+import { BtnRefresh } from './Components/BtnRefresh';
+import { GetDataLogin } from '../../Components/getDataLogin';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { LinkContainer } from 'react-router-bootstrap';
-import './Estilos.css';
-import { BtnRefresh } from './Components/BtnRefresh';
-import { GetDataLogin } from '../../Components/getDataLogin';
-import { useSelector } from 'react-redux';
-import { selectCartsByUserID } from '../../../../Data/Store/Features/Carts/CartsSlice';
 
 export const NavBar = () => {
-	const { local, lenght } = GetDataLogin();
+	const { local, length } = GetDataLogin();
 	const cartUser = useSelector((state) => selectCartsByUserID(state, local?.id || null));
+	const [shoppingCart, setShoppingCart] = useState(null);
+
+	useEffect(() => {
+		if (local) {
+			setShoppingCart(<ShoppingCart itemCount={cartUser ? cartUser.products.length : 0} />);
+				}
+	}, [local, cartUser]);
 
 	return (
 		<Navbar
@@ -37,8 +44,8 @@ export const NavBar = () => {
 					<SearchBar />
 					<BtnRefresh />
 				</Navbar.Collapse>
-				<ShoppingCart itemCount={cartUser ? cartUser.products.length : 0} />
-				<LinkContainer to={lenght > 0 ? '/user' : '/login'}>
+				{shoppingCart}
+				<LinkContainer to={length > 0 ? '/user' : '/login'}>
 					<button id='BtnProfile'>
 						<ProfilePhoto />
 					</button>

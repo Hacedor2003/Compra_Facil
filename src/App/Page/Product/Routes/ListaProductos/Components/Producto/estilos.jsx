@@ -1,11 +1,19 @@
 import styled, { keyframes } from 'styled-components';
 
-const Deslizar = keyframes`
+const sombrear = keyframes`
   0% {
-    transform: translateY(0);
-  }
+		filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 8.5));
+	}
   100% {
-    transform: translateY(-50px);
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 8.5));
+  }
+`;
+const desSombrear = keyframes`
+  0% {
+		filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 8.5));
+	}
+  100% {
+		filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 8.5));
   }
 `;
 
@@ -24,21 +32,10 @@ const VolverNormalidad = keyframes`
   }
 `;
 
-const Appear = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
-
 export const Contenedor = styled.div`
 	background-color: white;
 	width: 200px;
-  height: 335px;
+	height: 335px;
 	display: grid;
 	align-content: center;
 	justify-items: center;
@@ -50,24 +47,13 @@ export const Contenedor = styled.div`
 	position: relative;
 	z-index: 1;
 	animation: ${VolverNormalidad} 1s ease-in-out;
+	grid-template-rows: 1fr 1fr 1fr 1fr 20px;
 
 	&:hover {
 		transform: scale(1.1);
 		border: 3px solid black;
 		z-index: 2;
 		margin: 6px;
-		& > small {
-			display: flex;
-			animation: ${Appear} 0.6s ease forwards;
-		}
-		& > a {
-			& > img {
-				position: relative;
-				animation: ${Deslizar} 0.2s linear both;
-				display: flex;
-				z-index: 3;
-			}
-		}
 	}
 
 	& > p {
@@ -75,8 +61,8 @@ export const Contenedor = styled.div`
 		border-bottom: 1px solid black;
 		font-family: Arial, Helvetica, sans-serif;
 		display: flex;
-    flex-direction: row;
-    align-items: center;
+		flex-direction: row;
+		align-items: center;
 	}
 
 	& > a {
@@ -91,6 +77,9 @@ export const Contenedor = styled.div`
 		&:hover {
 			color: #033203;
 			filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 8.5));
+			& > img {
+				animation: ${sombrear} 0.2s linear both;
+			}
 		}
 		& > p {
 			overflow: hidden;
@@ -108,21 +97,40 @@ export const Contenedor = styled.div`
 	}
 `;
 
+const Appear = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+;`;
+
+const Desappear = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+;`;
+
 export const Etiqueta = styled.small`
-	background-color: white;
-	position: absolute;
-	left: 197px;
-	top: 20px;
-	background-size: 200px;
-	width: clamp(50px, 100px, 15vw);
-	height: 85%;
-	display: none;
-	border-radius: 0px 30px 30px 0px;
-	border: 3px solid black;
-	padding: 0.2rem;
-	animation: ${Appear} 0.6s ease forwards;
-	overflow: overlay;
+	background-color: black;
+	border-radius: 20px;
+	color: white;
+	width: 100%;
+	height: 90%;
+	position: ${(props) => (props.display ? 'absolute' : 'static')};
+	display: ${(props) => (props.display ? 'block' : 'none')};
+	overflow: auto;
+	animation: ${(props) => (props.display ? Appear : Desappear)} 0.6s ease forwards;
 	z-index: 3;
+	padding: 10px;
 	&::-webkit-scrollbar {
 		display: none;
 	}

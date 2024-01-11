@@ -12,6 +12,7 @@ export const ListaProductos = () => {
 	const error = useSelector(selectProductError);
 	const dispatch = useDispatch();
 
+
 	useEffect(() => {
 		if (productStatus === 'idle') {
 			dispatch(fetchProductos());

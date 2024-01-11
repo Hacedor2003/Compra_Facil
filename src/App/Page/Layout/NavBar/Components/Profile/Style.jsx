@@ -26,7 +26,7 @@ export const AnchorLink = styled.a`
 	color: black;
 	background-color: ${color};
 	border: 0px;
-	border-radius: 60%;
+	border-radius: 30%;
 
 	&:hover {
 		color: white;
