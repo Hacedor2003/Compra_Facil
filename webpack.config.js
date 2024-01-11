@@ -1,7 +1,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifestPlugin = require("webpack-pwa-manifest");
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
-const path = require("path");
+import { resolve } from "path";
 
 module.exports = {
   output: {
@@ -20,8 +21,26 @@ module.exports = {
       theme_color: "#fff",
       icons: [
         {
-          src: path.resolve("src/assets/icon.gif"),
+          src: resolve("src/assets/icon.gif"),
           size: [96, 128, 192, 256, 384, 512],
+        },
+      ],
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      runtimeCaching: [
+        {
+          urlPatternL: new RegExp("https://fakestoreapi.com/products"),
+          handler: "CacheFirst",
+          options: {
+            cacheName: "images",
+          },
+        },
+        {
+          urlPatternL: new RegExp("https://compra-facil-1q5s.vercel.app/"),
+          handler: "NetworkFirst",
+          options: {
+            cacheName: "api",
+          },
         },
       ],
     }),
