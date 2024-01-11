@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector } from 'react-redux';
 import { selectCartsByUserID } from '../../../../Data/Store/Features/Carts/CartsSlice';
 import { Header } from './Estilos';
@@ -8,9 +7,9 @@ import SearchBar from './Components/SearchBar/Index';
 import { ShoppingCart } from './Components/ShopingCart';
 import { BtnRefresh } from './Components/BtnRefresh';
 import { GetDataLogin } from '../../Components/getDataLogin';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { ChangeTheme } from './Components/ChangeTheme';
 
 export const NavBar = () => {
 	const { local, length } = GetDataLogin();
@@ -20,7 +19,7 @@ export const NavBar = () => {
 	useEffect(() => {
 		if (local) {
 			setShoppingCart(<ShoppingCart itemCount={cartUser ? cartUser.products.length : 0} />);
-				}
+		}
 	}, [local, cartUser]);
 
 	return (
@@ -51,6 +50,7 @@ export const NavBar = () => {
 					</button>
 				</LinkContainer>
 				<Navbar.Toggle aria-controls='navbarScroll' />
+				<ChangeTheme />
 			</Container>
 		</Navbar>
 	);

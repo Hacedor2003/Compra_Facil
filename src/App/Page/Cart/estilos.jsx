@@ -54,7 +54,7 @@ export const Lista = styled.li`
 	align-items: center;
 	list-style: none;
 	width: 200px;
-	background-color: transparent;
+	background-color: transparent;z
 	margin: 10px;
 	border: 2px solid black;
 	border-radius: 5%;

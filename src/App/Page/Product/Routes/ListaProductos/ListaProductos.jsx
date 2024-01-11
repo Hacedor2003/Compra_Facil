@@ -4,6 +4,7 @@ import { selectAllProducts, fetchProductos, selectProductStatus, selectProductEr
 import { useSelector, useDispatch } from 'react-redux';
 import { Categoria } from './Components/Categorias/Index';
 import { LoaderPage } from '../../../LoaderPage/LoaderPage';
+import { Container } from '@mui/material';
 
 export const ListaProductos = () => {
 	const [productosPorCategoria, setProductosPorCategoria] = useState({});
@@ -11,7 +12,6 @@ export const ListaProductos = () => {
 	const data = useSelector(selectAllProducts);
 	const error = useSelector(selectProductError);
 	const dispatch = useDispatch();
-
 
 	useEffect(() => {
 		if (productStatus === 'idle') {
@@ -65,5 +65,9 @@ export const ListaProductos = () => {
 			break;
 	}
 
-	return <Contenedor>{content}</Contenedor>;
+	return (
+		<Container>
+			<Contenedor>{content}</Contenedor>
+		</Container>
+	);
 };
