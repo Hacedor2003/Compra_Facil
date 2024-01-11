@@ -7,7 +7,7 @@ import Valoracion from './Components/Valoracion/Valoracion';
 import { useState } from 'react';
 
 export default function Producto({ producto, Mostrar }) {
-	const [etiquetaWatch, setEtiquetaWatch] = useState(false)
+	const [etiquetaWatch, setEtiquetaWatch] = useState(false);
 	return (
 		<Contenedor>
 			<Link to={`/product/${producto.id}`}>
@@ -27,8 +27,19 @@ export default function Producto({ producto, Mostrar }) {
 					''
 				)}
 			</p>
-			{Mostrar ? <Valoracion rating={producto.rating.rate} setRating={null}  /> : ''}
-			<button style={{display:'contents'}} onClick={()=>setEtiquetaWatch(prop=>!prop)}>Descripcion</button>
+			{Mostrar ? (
+				<Valoracion
+					rating={producto.rating.rate}
+					setRating={null}
+				/>
+			) : (
+				''
+			)}
+			<button
+				style={{ display: 'contents' }}
+				onClick={() => setEtiquetaWatch((prop) => !prop)}>
+				Descripcion
+			</button>
 		</Contenedor>
 	);
 }

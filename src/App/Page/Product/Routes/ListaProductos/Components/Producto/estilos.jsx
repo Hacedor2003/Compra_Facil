@@ -33,7 +33,6 @@ const VolverNormalidad = keyframes`
 `;
 
 export const Contenedor = styled.div`
-	background-color: white;
 	width: 200px;
 	height: 335px;
 	display: grid;
@@ -68,14 +67,12 @@ export const Contenedor = styled.div`
 	& > a {
 		display: contents;
 		text-decoration: none;
-		color: black;
 		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 		text-decoration: none;
 		transition: color 0.3s ease, filter 0.3s ease;
 		cursor: pointer;
 		border-bottom: 1px solid black;
 		&:hover {
-			color: #033203;
 			filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 8.5));
 			& > img {
 				animation: ${sombrear} 0.2s linear both;

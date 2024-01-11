@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { color } from '../../../Layout/NavBar/Estilos';
 
 export const Contenedor = styled.div`
 	height: 73.5vh;
@@ -15,7 +14,6 @@ export const Lista = styled.ul`
 `;
 
 export const ContenedorLista = styled.div`
-	background-color: ${color};
 	width: 100%;
 	overflow: overlay;
 	display: flex;
@@ -28,11 +26,8 @@ export const ContenedorLista = styled.div`
 		display: none;
 	}
 	&:hover {
-		background-color: #033203;
-		filter: drop-shadow(10px 10px 50px #132713);
 		& > h2 {
 			border-bottom: 2px solid black;
-			color: ${color};
 		}
 	}
 `;

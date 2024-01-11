@@ -48,13 +48,13 @@ export const BtnAnadirAlCarrito = ({ rating, producto, watch }) => {
 	};
 
 	return (
-		<Btn
+		<button
 			id='btn'
 			data-tooltip={'📦' + rating}
 			onClick={HandleClick}>
 			{watch ? <p>Añadir al carrito</p> : ''}
 			<FaCartPlus />
-		</Btn>
+		</button>
 	);
 };
 

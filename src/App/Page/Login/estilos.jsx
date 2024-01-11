@@ -42,7 +42,6 @@ export const ContenedorDerecho = styled(DisplayFlex)`
 	height: 65vh;
 	z-index: 1;
 	margin: 10px;
-	background-color: ${color};
 	border: 2px solid black;
 	border-radius: 20px;
 	width: ${(props) => (props.display ? 'fit-content' : '350px')};
@@ -67,7 +66,6 @@ export const ContenedorDerecho = styled(DisplayFlex)`
 			& > input {
 				margin: 3px;
 				width: 100%;
-				background: none;
 				border: 1px solid black;
 				padding: 2px;
 				border-radius: 5px;
@@ -102,7 +100,6 @@ export const ContenedorIsquierdo = styled.div`
 		width: 100%;
 		display: flex;
 		justify-content: center;
-		background-color: black;
 		color: white;
 	}
 	& > article {
@@ -142,14 +139,11 @@ export const BtnLogin = styled.button`
 	border: 1px solid black;
 	padding: 4px 10px;
 	cursor: pointer;
-	background-color: transparent;
 	transition: 0.25s ease;
 	&:hover {
-		background-color: white;
 	}
 `;
 export const BtnSwitch = styled.button`
-	background-color: ${color};
 	border: 1px solid black;
 	border-radius: 30px;
 	padding: 10px;
@@ -157,7 +151,5 @@ export const BtnSwitch = styled.button`
 	transition: 0.25s ease;
 
 	&:hover {
-		background-color: black;
-		color: white;
 	}
 `;
