@@ -16,3 +16,12 @@
   -ms-border-radius: 20%;
   -o-border-radius: 20%;
 }
+[data-bs-theme=dark] #btn {
+  background-color: black
+}
+[data-bs-theme=dark] #btn:hover {
+  background-color: rgb(75, 73, 70)
+}
+[data-bs-theme=light] #btn:hover {
+  background-color: rgb(161, 158, 154)
+}

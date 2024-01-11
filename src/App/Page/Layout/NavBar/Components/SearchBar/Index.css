@@ -3,6 +3,14 @@
   box-sizing: border-box;
   width: fit-content;
 }
+[data-bs-theme=dark] .mainbox {
+  background-color: black;
+}
+[data-bs-theme=dark] .search_icon {
+  fill: white;
+  height: 100%;
+  width: 100%;
+}
 
 .mainbox {
   box-sizing: border-box;
@@ -74,18 +82,18 @@
 }
 
 .search_input::placeholder {
-  color: #052604;
+  color: #0a4908;
 }
 
 .iconContainer {
   box-sizing: border-box;
   padding-top: 5px;
-  width: fit-content;
   transition: all 0.3s ease;
+  width: fit-content;
 }
 
 .search_icon {
   box-sizing: border-box;
-  fill: white;
+  fill: black;
   font-size: 1.3em;
 }

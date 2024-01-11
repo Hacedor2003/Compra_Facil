@@ -1,5 +1,5 @@
+import './Estilos.css'
 import { Contenedor, Etiqueta } from './estilos';
-
 import { Link } from 'react-router-dom';
 import { BtnAnadirAlCarrito } from '../../../../../Components/BtnAnadirAlCarrito';
 import PropTypes from 'prop-types';
@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function Producto({ producto, Mostrar }) {
 	const [etiquetaWatch, setEtiquetaWatch] = useState(false);
 	return (
-		<Contenedor>
+		<Contenedor id='contenedor'>
 			<Link to={`/product/${producto.id}`}>
 				<img src={producto.image} />
 				<p>{producto.title}</p>
@@ -36,7 +36,7 @@ export default function Producto({ producto, Mostrar }) {
 				''
 			)}
 			<button
-				style={{ display: 'contents' }}
+			id='btnDescripcion'
 				onClick={() => setEtiquetaWatch((prop) => !prop)}>
 				Descripcion
 			</button>
