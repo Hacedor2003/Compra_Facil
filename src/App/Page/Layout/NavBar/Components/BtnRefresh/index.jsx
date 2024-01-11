@@ -30,6 +30,9 @@ export const BtnRefresh = () => {
 		} else if (statusProfile === 'idle' && statusCart === 'idle' && statusProducts === 'idle') {
 			newTitle = 'No conexion';
 		}
+		if (!navigator.onLine) {
+			newTitle = 'El navegador no tiene conexion';
+		}
 		document.title = newTitle || 'Compra Fácil';
 	}, [statusProfile, statusCart, statusProducts]);
 
