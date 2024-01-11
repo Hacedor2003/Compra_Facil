@@ -17,15 +17,14 @@
 }
 
 #Btn.active {
-  background-color: #052604;
+  background-color: black;
   color: white;
 }
 
 #Btn.active:hover {
+  background-color: rgb(131, 128, 128);
   color: white;
-  background-color: #052604;
   border-radius: 20%;
-  filter: drop-shadow(10px 10px 50px #132713);
 }
 
 #BtnProfile {

@@ -7,11 +7,11 @@ export const Contenedor = styled.div`
 	background-color: ${color};
 	display: grid;
 	@media screen and (min-width: 412px) {
-		width: fit-content;
-		height: 80vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
+		width: 100%;
+    height: 76vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 	}
 `;

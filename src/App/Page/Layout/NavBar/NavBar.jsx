@@ -7,12 +7,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from 'react-router-bootstrap';
 import './Estilos.css';
-import { useSelector } from 'react-redux';
-import { selectCartById } from '../../../../Data/Store/Features/Carts/CartsSlice';
 import { BtnRefresh } from './Components/BtnRefresh';
+import { GetDataLogin } from '../../Components/getDataLogin';
+import { useSelector } from 'react-redux';
+import { selectCartsByUserID } from '../../../../Data/Store/Features/Carts/CartsSlice';
 
 export const NavBar = () => {
-	const cantEnCarrito = useSelector((state) => selectCartById(state, 0));
+	const { local, lenght } = GetDataLogin();
+	const cartUser = useSelector((state) => selectCartsByUserID(state, local?.id || null));
+
 	return (
 		<Navbar
 			expand='lg'
@@ -34,10 +37,12 @@ export const NavBar = () => {
 					<SearchBar />
 					<BtnRefresh />
 				</Navbar.Collapse>
-				<ShoppingCart itemCount={cantEnCarrito ? cantEnCarrito.products.length : 0} />
-				<button id='BtnProfile'>
-					<ProfilePhoto />
-				</button>
+				<ShoppingCart itemCount={cartUser ? cartUser.products.length : 0} />
+				<LinkContainer to={lenght > 0 ? '/user' : '/login'}>
+					<button id='BtnProfile'>
+						<ProfilePhoto />
+					</button>
+				</LinkContainer>
 				<Navbar.Toggle aria-controls='navbarScroll' />
 			</Container>
 		</Navbar>

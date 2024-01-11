@@ -95,17 +95,16 @@ export const ContenedorIsquierdo = styled.div`
 	height: fit-content;
 	z-index: 1;
 	margin: 10px;
-	background-color: #1681de;
 	border: 2px solid black;
 	animation: ${animacionAparecer} 0.25s both;
 
 	& > div {
 		width: 100%;
-		background-color: red;
 		display: flex;
 		justify-content: center;
+		background-color: black;
+		color: white;
 	}
-
 	& > article {
 		margin-left: 5px;
 		align-self: baseline;
@@ -127,7 +126,6 @@ export const Contenedor = styled.div`
 export const Letras = styled.p`
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 30px;
-	text-transform: uppercase;
 `;
 export const LetrasHint = styled.p`
 	font-family: Arial, Helvetica, sans-serif;

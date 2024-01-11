@@ -35,12 +35,12 @@ export const ShopingPage = ({ cart, setWatch }) => {
 								{cart.map((prod, index) => {
 									const contentData = (
 										<ListaPlecas>
-											<span>{prod.products.title}</span>
-											<span>{'Cantidad: ' + prod.products.quantity}</span>
-											<small>${prod.products.price}</small>
+											<span>{prod.title}</span>
+											<span>{'Cantidad: ' + prod.rating.count}</span>
+											<small>${prod.price}</small>
 										</ListaPlecas>
 									);
-									total += prod.products.price;
+									total += prod.price;
 									return <li key={index}>{contentData}</li>;
 								})}
 							</ol>

@@ -58,6 +58,7 @@ export const selectAllprofile = (state) => state.profile.profile;
 export const selectProfileById = (state, profileId) => state.profile.profile.find((profile) => profile.id === profileId);
 export const selectProfileByUserName = (state, username) => state.profile.profile.find((profile) => profile.username === username);
 export const selectProfileByPassWord = (state, password) => state.profile.profile.find((profile) => profile.password === password);
-export const profileStatusSelector = (state) => state.profile.status;
+export const selectProfileStatus = (state) => state.profile.status;
+export const selectProfileError = (state) => state.profile.error;
 
 export const profileSlice = profilelice.reducer;

@@ -1,13 +1,18 @@
 import { ContenedorInfoPrimary, ContenedorInfoSecondary } from './estilos';
 import { Cart } from '../Cart/index';
-import { useContext, useEffect, useState } from 'react';
-import { DataContext } from '../../../Data/Context/Context';
 import { LoaderPage } from '../LoaderPage/LoaderPage';
 import { Col, Container, Row } from 'react-bootstrap';
 import './Estilos.css';
+import { useSelector } from 'react-redux';
+import { selectProfileError, selectProfileStatus } from '../../../Data/Store/Features/Profile/ProfileSlice';
+import { useEffect, useState } from 'react';
+
+import { GetDataLogin } from '../Components/getDataLogin';
 
 export const Profile = () => {
-	let { profile } = useContext(DataContext);
+	const status = useSelector(selectProfileStatus);
+	const error = useSelector(selectProfileError);
+	const { local, lenght } = GetDataLogin();
 
 	const [imageSrc, setImageSrc] = useState(null);
 	useEffect(() => {
@@ -19,7 +24,7 @@ export const Profile = () => {
 
 	let content;
 
-	switch (profile.status) {
+	switch (status) {
 		case 'idle':
 			{
 				content = 'No está cargando';
@@ -34,7 +39,7 @@ export const Profile = () => {
 			{
 				content = (
 					<>
-						<Container>
+						<Container fluid={true} >
 							<Row>
 								<Col>
 									<ContenedorInfoPrimary>
@@ -42,10 +47,10 @@ export const Profile = () => {
 											src={imageSrc ? imageSrc : 'https://th.bing.com/th/id/OIP.z2EVNghKpSs2wUWRoIUOXAAAAA?rs=1&pid=ImgDetMain'}
 											alt='Profile img'
 										/>
-										<p>{profile.data.name ? 'Nombre: ' + profile.data.name.firstname : 'Anonimo'}</p>
-										<p>{profile.data.name ? 'Apellido: ' + profile.data.name.lastname : 'Anonimo'}</p>
-										<p>{'Nombre de Usuario: ' + profile.data.username}</p>
-										<p>{'Email: ' + profile.data.email}</p>
+										<p>{local && lenght > 0 ? 'Nombre: ' + local.name.firstname : 'Anonimo'}</p>
+										<p>{local && lenght > 0 ? 'Apellido: ' + local.name.lastname : 'Anonimo'}</p>
+										<p>{'Nombre de Usuario: ' + local && lenght > 0 ? local.username : 'Anonimo'}</p>
+										<p>{'Email: ' + local && lenght > 0 ? local.email : 'Anonimo'}</p>
 									</ContenedorInfoPrimary>
 								</Col>
 								<Col>
@@ -61,7 +66,7 @@ export const Profile = () => {
 			break;
 		case 'failed':
 			{
-				content = <>{profile.error}</>;
+				content = <>{error}</>;
 			}
 			break;
 		default:

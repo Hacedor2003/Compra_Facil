@@ -10,7 +10,7 @@ export const ContenedorCart = styled.div`
 	}
 `;
 export const Contenedor = styled.div`
-	height: 70vh;
+	height: 100%;
 	overflow: overlay;
 	display: flex;
 	z-index: 1;
@@ -25,8 +25,6 @@ export const Contenedor = styled.div`
 	}
 	& > li {
 		list-style: none;
-		height: auto;
-		width: auto;
 		&::-webkit-scrollbar {
 			display: none;
 		}

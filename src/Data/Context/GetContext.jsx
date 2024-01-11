@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectProfileById, profileStatusSelector } from '../../Data/Store/Features/Profile/ProfileSlice';
-import { selectCartsStatus, fetchCarts, selectCartsByUserID } from '../Store/Features/Carts/CartsSlice';
+import { selectProfileById, selectProfileStatus } from '../../Data/Store/Features/Profile/ProfileSlice';
 
 export const useProfileData = () => {
-	let profileStatus = useSelector(profileStatusSelector);
+	let profileStatus = useSelector(selectProfileStatus);
 	const profile = useSelector((state) => selectProfileById(state, 2));
 	const dispatch = useDispatch();
 
@@ -35,20 +34,3 @@ export const useProfileData = () => {
 	};
 };
 
-export const useCartData = (userId) => {
-	const cartStatus = useSelector(selectCartsStatus);
-	const dispatch = useDispatch();
-	const cartData = useSelector((state) => selectCartsByUserID(state, userId));
-	const localCartData = JSON.parse(localStorage.getItem('cart'));
-
-	useEffect(() => {
-		if (!userId && cartStatus === 'idle') {
-			dispatch(fetchCarts());
-		}
-	}, [userId, cartStatus, dispatch]);
-
-	return {
-		status: cartStatus,
-		data: localCartData || cartData,
-	};
-};

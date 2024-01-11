@@ -45,4 +45,5 @@ export const selectProductByPrice = (state, price) => state.products.products.fi
 export const selectProductByRate = (state, rate) => state.products.products.filter((product) => product.rating.rate < rate);
 export const selectProductByCount = (state, count) => state.products.products.filter((product) => product.rating.count < count);
 
+
 export const productSlicee = productSlice.reducer;

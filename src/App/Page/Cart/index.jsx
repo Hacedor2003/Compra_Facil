@@ -1,86 +1,61 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectCartsError } from '../../../Data/Store/Features/Carts/CartsSlice';
+import { selectCartsByUserID, selectCartsError, selectCartsStatus } from '../../../Data/Store/Features/Carts/CartsSlice';
+import { selectAllProducts } from '../../../Data/Store/Features/Products/ProductSlice';
 import { Contenedor, ContenedorBtnComprar } from './estilos';
-import { useContext, useEffect, useState } from 'react';
 import { LoaderPage } from '../LoaderPage/LoaderPage';
 import { BotonComprar } from '../Components/BotonComprar/Index';
-import DataContext from '../../../Data/Context/Context';
-import { useCartData } from '../../../Data/Context/GetContext';
 import { ShopingPage } from '../ShopingPage/Index';
-import { Product } from './Components/Products';
+import { GetDataLogin } from '../Components/getDataLogin';
+import Producto from '../Product/Routes/ListaProductos/Components/Producto/Index';
 
 export const Cart = () => {
-	const { profile } = useContext(DataContext);
-	const [dataCarts, setDataCarts] = useState(null);
-	const cartUser = useCartData(profile.data?.id || null);
-	const [watch, setWatch] = useState(true);
+	const { local } = GetDataLogin();
+	const cartStatus = useSelector(selectCartsStatus);
+	const cartData = useSelector((state) => selectCartsByUserID(state, local?.id || null));
 	const error = useSelector(selectCartsError);
+	const allProducts = useSelector(selectAllProducts);
+
 	const [cart, setCart] = useState([]);
-
-	let content = 'Esto es un texto predeterminado';
-
-	useEffect(() => {
-		if (!profile.isLocal) {
-			if (cartUser.status === 'succeeded' && cartUser.data) {
-				setDataCarts(cartUser.data);
-			}
-		} else if (profile.isLocal && cartUser.data?.length > 0) {
-			setDataCarts(cartUser.data);
-		}
-	}, [profile, cartUser]);
+	const [watch, setWatch] = useState(false);
 
 	useEffect(() => {
-		if (dataCarts && dataCarts.length > 0) {
-			setCart(dataCarts);
+		if (cartStatus === 'succeeded' && cartData) {
+			const products = cartData.products.map((item) => allProducts.find((product) => product.id === item.productId));
+			setCart(products);
 		}
-	}, [dataCarts]);
+	}, [cartStatus, cartData, allProducts]);
 
-	switch (cartUser.status) {
+	let content = '';
+	switch (cartStatus) {
 		case 'idle':
-			{
-				content = 'No está cargando';
-			}
+			content = 'No está cargando';
 			break;
 		case 'loading':
-			{
-				content = <LoaderPage />;
-			}
+			content = <LoaderPage />;
 			break;
 		case 'succeeded':
-			{
-				if (Array.isArray(cart)) {
-					content = cart.map((prod, index) =>
-						prod.products.map((item) => (
-							<li key={index}>
-								<Product
-									productId={item.productId}
-									quantity={item.quantity}
-									Mostrar={false}
-								/>{' '}
-							</li>
-						))
-					);
-				}
+			if (Array.isArray(cart)) {
+				content = cart.map((prod) => (
+					<Producto key={prod} producto={prod} Mostrar={false} />
+				));
 			}
 			break;
 		case 'failed':
-			{
-				content = <>{error}</>;
-			}
+			content = <>{error}</>;
 			break;
 		default:
-			{
-				content = 'Algo por defecto';
-			}
+			content = 'Algo por defecto';
 			break;
 	}
+
 	const resultado = (
 		<>
 			<Contenedor id='Contenedor-Content-Cart'>{content}</Contenedor>
 			<BotonComprar setWatch={setWatch} />
 			<ContenedorBtnComprar
 				id='ContenedorRecibo'
-				display={watch}>
+				style={{ display: watch ? 'block' : 'none' }}>
 				<ShopingPage
 					cart={cart}
 					setWatch={setWatch}
@@ -88,5 +63,6 @@ export const Cart = () => {
 			</ContenedorBtnComprar>
 		</>
 	);
-	return cart.length > 0 ? resultado : <p>El Carrito esta Vacio</p>;
+
+	return cart.length > 0 ? resultado : <p>El Carrito está Vacío</p>;
 };

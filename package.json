@@ -45,7 +45,8 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "extends": [
-      "./node_modules/standard/eslintrc.json"
+      "./node_modules/standard/eslintrc.json",
+      "plugin:react-hooks/recommended"
     ]
   }
 }
