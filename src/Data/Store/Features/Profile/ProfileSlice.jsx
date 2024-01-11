@@ -60,5 +60,4 @@ export const selectProfileByUserName = (state, username) => state.profile.profil
 export const selectProfileByPassWord = (state, password) => state.profile.profile.find((profile) => profile.password === password);
 export const profileStatusSelector = (state) => state.profile.status;
 
-
 export const profileSlice = profilelice.reducer;

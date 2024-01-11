@@ -4,6 +4,7 @@ import { DataContext } from '../../../Data/Context/Context';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectAllprofile } from '../../../Data/Store/Features/Profile/ProfileSlice';
+import AddUser from './Components/AddUser';
 
 export const LoginForm = () => {
 	const { profile } = useContext(DataContext);
@@ -30,7 +31,8 @@ export const LoginForm = () => {
 	const handleLogin = () => {
 		const userData = { username, password, name, lastname, email, id: 1, photo: photoUrl };
 		if (!watch) {
-			Object.keys(userData).forEach((key) => localStorage.setItem(key, userData[key]));
+			//Object.keys(userData).forEach((key) => localStorage.setItem(key, userData[key]));
+			AddUser();
 		}
 	};
 
@@ -69,69 +71,23 @@ export const LoginForm = () => {
 				</ContenedorLetras>
 				<div>
 					<ContenedorSignUp display={watch}>
-						<input
-							type='text'
-							value={username}
-							onChange={(e) => setUsername(e.target.value)}
-							placeholder='Nombre de usuario'
-						/>
-						<input
-							type='password'
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							placeholder='Contraseña'
-						/>
-						<input
-							type='text'
-							value={name}
-							onChange={(e) => setName(e.target.value)}
-							placeholder='Nombre'
-						/>
-						<input
-							type='text'
-							value={lastname}
-							onChange={(e) => setLastName(e.target.value)}
-							placeholder='Apellido'
-						/>
-						<input
-							type='email'
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							placeholder='Email'
-						/>
-						<input
-							type='file'
-							onChange={(e) => handleFileChange(e)}
-						/>
+						<input type='text' value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Nombre de usuario'/>
+						<input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña'/>
+						<input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Nombre'/>
+						<input type='text' value={lastname} onChange={(e) => setLastName(e.target.value)} placeholder='Apellido'/>
+						<input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email'/>
+						<input type='file' onChange={(e) => handleFileChange(e)}/>
 					</ContenedorSignUp>
 
 					<ContenedorLogin display={watch}>
-						<input
-							type='text'
-							value={username}
-							onChange={(e) => setUsername(e.target.value)}
-							placeholder='Nombre de usuario'
+						<input type='text' value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Nombre de usuario'
 						/>
-						<input
-							type='password'
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							placeholder='Contraseña'
+						<input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña'
 						/>
 					</ContenedorLogin>
 				</div>
-				<BtnLogin
-					id='boton'
-					onClick={handleLogin}>
-					{' '}
-					Aceptar
-				</BtnLogin>
-				<BtnSwitch
-					id='boton'
-					onClick={() => handleClick()}>
-					{' '}
-					Switch{' '}
-				</BtnSwitch>
+				<BtnLogin id='boton' onClick={handleLogin}> Aceptar </BtnLogin>
+				<BtnSwitch id='boton' onClick={() => handleClick()}> Switch</BtnSwitch>
 			</ContenedorDerecho>
 		</Contenedor>
 	);
