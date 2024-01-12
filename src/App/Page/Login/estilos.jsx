@@ -38,12 +38,10 @@ export const ContenedorLetras = styled.article`
 
 export const ContenedorDerecho = styled(DisplayFlex)`
     justify-content: space-around;
-    height: 65vh;
     z-index: 1;
     margin: 10px;
     border: 2px solid black;
     border-radius: 20px;
-    width: ${(props) => (props.display ? "fit-content" : "350px")};
 
     &:hover {
         box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.75);
@@ -99,7 +97,6 @@ export const ContenedorIsquierdo = styled.div`
         width: 100%;
         display: flex;
         justify-content: center;
-        color: white;
     }
     & > article {
         margin-left: 5px;
@@ -117,6 +114,15 @@ export const ContenedorIsquierdo = styled.div`
 export const Contenedor = styled.div`
     display: grid;
     grid-template-columns: ${(props) => (props.display ? "1fr 1fr" : "1fr")};
+    height: 79vh;
+    @media screen and (min-height: 667px) and (max-height: 1200px) and (max-width: 1200px) {
+        & {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
 `;
 
 export const Letras = styled.p`
