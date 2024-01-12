@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/gif" href="./src/Img/search.gif" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/Img/search.gif">
+    <link rel="apple-touch-icon" href="./src/assets/_defd7984-1068-474a-95bd-422bdcc.jpg" sizes="191x158">
+    <link rel="mask-icon" href="./src/assets/icons8-web-24.png" color="#00F">
+    <meta name="light" content="#ffffff">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Pagina de e-commerce falsa">
+    <link rel="stylesheet" href="./src/assets/icon.gif">
     <script src="http://localhost:5173"></script>
     <title>Compra Facil</title>
 </head>
@@ -16,19 +20,6 @@
     <noscript>
         <h3>Esta app necesita JavaScript para funcionar</h3>
     </noscript>
-    <script>
-        if('serviceWorker' in navigator) {
-            window.addEventListener('load',function(){
-                navigator.serviceWorker.register('/service-worker.js')
-                .then(registration =>{
-                    console.log('SW-Registrado')
-                })
-                .catch(registrationError =>{
-                    console.log('SW-Error',registrationError)
-                })
-            })
-        }
-    </script>
 </body>
 
 </html>
