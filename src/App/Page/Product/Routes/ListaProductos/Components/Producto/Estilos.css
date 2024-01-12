@@ -9,6 +9,9 @@
 [data-bs-theme=dark] #contenedor>a {
   color: rgb(131, 125, 125);
 }
+[data-bs-theme=light] #contenedor>a {
+  color:black;
+}
 
 #btnDescripcion {
   border: 2px solid black;

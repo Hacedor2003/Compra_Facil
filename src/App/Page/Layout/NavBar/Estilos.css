@@ -1,42 +1,43 @@
 #Btn {
-  padding: 10px;
-  text-decoration: none;
-  transition: 0.5s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: black;
-  background-color: #ffffff;
-  border: 0px;
-  border-radius: 60%;
+    padding: 10px;
+    text-decoration: none;
+    transition: 0.5s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    background-color: #ffffff;
+    border: 0px;
+    border-radius: 60%;
 }
 
 #Btn:hover {
-  color: white;
-  background-color: #052604;
-  border-radius: 20%;
-  filter: drop-shadow(10px 10px 50px #132713);
+    color: white;
+    background-color: #052604;
+    border-radius: 20%;
+    filter: drop-shadow(10px 10px 50px #132713);
 }
 
 #Btn.active {
-  background-color: #052604;
-  color: white;
+    background-color: #052604;
+    color: white;
 }
 
 #Btn.active:hover {
-  color: white;
-  background-color: #052604;
-  border-radius: 20%;
-  filter: drop-shadow(10px 10px 50px #132713);
+    color: white;
+    background-color: #052604;
+    border-radius: 20%;
+    filter: drop-shadow(10px 10px 50px #132713);
 }
 
 #BtnProfile {
-  display: contents;
+    display: contents;
 }
 
 #BtnProfile.active {
-  display: contents;
+    display: contents;
 }
+
 #navbarScroll.navbar-collapse.collapse.show {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+    align-items: baseline;
+    display: flex;
+    flex-direction: column;
 }

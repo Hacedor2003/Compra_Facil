@@ -6,6 +6,7 @@ import store from "./Data/Store/Store";
 import { Provider } from "react-redux";
 import { Index } from "./App/index";
 import { registerSW } from "virtual:pwa-register";
+import { Container } from "react-bootstrap";
 
 registerSW({ immediate: true });
 
@@ -16,7 +17,9 @@ const updateSW = registerSW({
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <Provider store={store}>
-            <Index />
+            <Container fluid={true}>
+                <Index />
+            </Container>
         </Provider>
     </React.StrictMode>
 );

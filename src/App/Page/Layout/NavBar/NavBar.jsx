@@ -10,6 +10,7 @@ import { GetDataLogin } from '../../Components/getDataLogin';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { ChangeTheme } from './Components/ChangeTheme';
+import './Estilos.css'
 
 export const NavBar = () => {
 	const { local, length } = GetDataLogin();
