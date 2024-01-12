@@ -7,31 +7,32 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate",
-      injectRegister: "auto",
-      workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,gif,png,svg}"],
-      },
-      includeAssets: [
-        "./src/assets/search.gif",
-        "./src/assets/_defd7984-1068-474a-95bd-422bdcc.jpg",
-        "./src/assets/icons8-web-24.png",
-      ],
       manifest: {
+        display: "standalone",
+        display_override: ["window-controls-overlay"],
+        lang: "es-Es",
         name: "Compra Facil",
         short_name: "CompraFast",
         description: "Pagina Web de e-commerce falsa",
         theme_color: "#ffffff",
+        background_color: "#fff",
         icons: [
           {
-            src: "./src/assets/icons8-shop-100.png",
-            sizes: "100x100",
+            src: "store 64x64.png",
+            sizes: "64x64",
             type: "image/png",
           },
           {
-            src: "./src/assets/store-4156934_640.png",
-            sizes: "640x631",
+            src: "store 192x192.png",
+            sizes: "192x192",
             type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "store 512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
           },
         ],
       },
