@@ -10,10 +10,6 @@ import { Container } from "react-bootstrap";
 
 registerSW({ immediate: true });
 
-const updateSW = registerSW({
-    onOfflineReady() {},
-});
-
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
         <Provider store={store}>
